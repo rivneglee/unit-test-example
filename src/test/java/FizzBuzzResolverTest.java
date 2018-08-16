@@ -29,4 +29,19 @@ public class FizzBuzzResolverTest {
     public void whenGivenNumberIsNotMultiplesOf3And5ResolverShouldConvertNumberToString() {
         Assert.assertEquals("7", resolver.resolve(7));
     }
+
+    @Test
+    public void whenGiven0ResolverShouldPrint0() {
+        Assert.assertEquals("0", resolver.resolve(0));
+    }
+
+    @Test
+    public void whenGivenNegativeNumberResolverShouldAlsoResolveCorrect() {
+        Assert.assertEquals("Fizz", resolver.resolve(-3));
+    }
+
+    @Test
+    public void whenGivenNullResolverShouldReturnsNull() {
+        Assert.assertEquals(null, resolver.resolve(null));
+    }
 }

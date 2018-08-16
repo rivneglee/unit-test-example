@@ -17,9 +17,12 @@ public class IntRangePrinter implements RangePrinter<Integer> {
     public void print(Integer from, Integer to) {
         IntStream.rangeClosed(from, to).forEach(i -> {
             try {
-                writer.write(resolver.resolve(i));
-                writer.write(",");
-                writer.flush();
+                String value = resolver.resolve(i);
+                if (value != null) {
+                    writer.write(value);
+                    writer.write(",");
+                    writer.flush();
+                }
             } catch (IOException e) { }
         });
     }

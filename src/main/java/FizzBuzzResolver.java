@@ -1,6 +1,8 @@
 public class FizzBuzzResolver implements Resolver<Integer> {
     @Override
     public String resolve(Integer value) {
+        if (value == null) return null;
+        if (value == 0) return value.toString();
         if (value % 15 == 0) {
             return "FizzBuzz";
         } else if (value % 5 == 0) {

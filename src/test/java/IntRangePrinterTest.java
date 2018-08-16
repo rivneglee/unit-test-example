@@ -62,4 +62,11 @@ public class IntRangePrinterTest {
         verify(outputStream).write("A");
         verify(outputStream).write("C");
     }
+
+    @Test
+    public void whenResolverReturnsNullRangePrinterShouldPrintNothing() throws IOException {
+        when(resolver.resolve(any())).thenReturn(null);
+        printer.print(1, 3);
+        verify(outputStream, never()).write(anyString());
+    }
 }
